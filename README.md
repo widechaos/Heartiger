@@ -48,24 +48,25 @@
 
 ```mermaid
 flowchart TB
-    subgraph 交互层["交互层 (前端)"]
+    subgraph 交互层[交互层 前端]
         A[微信服务号] --> B[消息队列]
         C[桌面小组件] --> B
         D[App手动记录] --> B
         E[语音输入] --> B
     end
 
-    subgraph 代理层["代理层 (OpenClaw Agent)"]
+    subgraph 代理层[代理层 OpenClaw Agent]
+        direction LR
         F[智能分拣员 Skill] --> G[原始素材库]
         H[动态炼金师 Skill] --> I[知识图谱]
         J[输出引擎 Skill] --> K[分享卡片/报告]
         L[个人教练 Skill] --> M[行为分析]
     end
 
-    subgraph 存储与语义层["存储与语义层"]
-        N[本地Markdown仓库]
-        O[向量数据库 (Qdrant)]
-        P[图片/音频存储]
+    subgraph 存储与语义层[存储与语义层]
+        N[本地 Markdown 仓库]
+        O[向量数据库 Qdrant]
+        P[图片及音频存储]
     end
 
     B --> F
